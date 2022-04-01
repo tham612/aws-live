@@ -30,7 +30,7 @@ def GetEmp():
     return render_template('GetEmp.html')
 
 
-@app.route("/about", methods=['POST','GET'])
+@app.route("/about", methods=['GET','POST'])
 def about():
     return render_template('www.intellipaat.com')
 
