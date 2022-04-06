@@ -153,12 +153,13 @@ def FetchData():
 
         # if SELECT:
         myresult = cursor.fetchall()
+        print(myresult)
 
-        emp_id = myresult[0]['emp_id']
-        first_name = myresult[0]['first_name']
-        last_name = myresult[0]['last_name']
-        pri_skill = myresult[0]['pri_skill']
-        location = myresult[0]['location']
+        emp_id = myresult['emp_id']
+        first_name = myresult['first_name']
+        last_name = myresult['last_name']
+        pri_skill = myresult['pri_skill']
+        location = myresult['location']
 
 
 
