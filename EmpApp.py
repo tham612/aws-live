@@ -162,6 +162,7 @@ def FetchData():
         last_name = myresult[2]
         pri_skill = myresult[3]
         location = myresult[4]
+        image_url = myresult[5]
 
 
 
@@ -176,7 +177,7 @@ def FetchData():
     # some text display, but not in html page
     print("all modification done...")
 
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location) #image_url
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url) #image_url
 
 
 if __name__ == '__main__':
