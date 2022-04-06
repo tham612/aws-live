@@ -143,17 +143,19 @@ def FetchData():
 
     emp_id = request.form['emp_id']
 
-
-    select_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
+    select_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    adr = (emp_id, )
 
     try:
-        cursor.execute(select_sql, (emp_id)) 
-        db_conn.commit()
+        cursor.execute(select_sql, adr) 
 
         # if SELECT:
         myresult = cursor.fetchone()
+        print("===================================================")
+        print("========== in db =============")
         print(myresult)
+        print("===================================================")
 
         emp_id = myresult['emp_id']
         first_name = myresult['first_name']
