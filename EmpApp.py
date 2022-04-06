@@ -215,7 +215,6 @@ def addtime():
 
     print("all modification done...")
     return render_template('AddTimeOutput.html', name=emp_id)
-    return render_template('AddTime.html')
  
 #update time
 @app.route('/updatetime', methods=['POST'])
