@@ -189,7 +189,7 @@ if __name__ == '__main__':
 
 #view time
 @app.route('/viewtime')
-def useradmin():
+def UserAdmin():
     cur = db_conn.cursor()
     result = cur.execute("SELECT * FROM worktime")
     employee = cur.fetchall()
@@ -197,7 +197,7 @@ def useradmin():
 
 #add time
 @app.route("/addtime", methods=['GET', 'POST'])
-def addtime():
+def AddTime():
     emp_id = request.form['emp_id']
     working_date = request.form['work_date']
     time_in = request.form['time_in']
@@ -218,7 +218,7 @@ def addtime():
  
 #update time
 @app.route('/updatetime', methods=['POST'])
-def updatetime():
+def UpdateTime():
         pk = request.form['pk']
         name = request.form['name']
         value = request.form['value']
