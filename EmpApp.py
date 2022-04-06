@@ -108,7 +108,7 @@ def AddTime():
     insert_sql = "INSERT INTO worktime VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-    try
+    try:
         cursor.execute(insert_sql, (emp_id, working_date, time_in, time_out))
         db_conn.commit()
 
