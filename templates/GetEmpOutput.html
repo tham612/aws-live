@@ -87,7 +87,10 @@
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Image: <div class="form-control">{{ image_url }}</div>
+<!-- 						Image: <div class="form-control">{{ image_url }}</div> -->
+						Image: <div class="form-control">
+							<img src="{% image_url %}" alt="Italian Trulli">
+						</div>
 					</div>
 				</div>
 			</div>
