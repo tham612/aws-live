@@ -196,7 +196,7 @@ def UserAdmin():
     return render_template('ViewTime.html', employee=employee)
 
 #add time
-@app.route("/addtime", methods=['GET', 'POST'])
+@app.route("/addtime", methods=['POST'])
 def AddTime():
     emp_id = request.form['emp_id']
     working_date = request.form['work_date']
@@ -215,6 +215,11 @@ def AddTime():
 
     print("all modification done...")
     return render_template('AddTimeOutput.html', name=emp_id)
+
+#get time
+@app.route("/gettime", methods=['GET', 'POST'])
+def GetEmp():
+    return render_template('ViewTime.html')
  
 #update time
 @app.route('/updatetime', methods=['POST'])
