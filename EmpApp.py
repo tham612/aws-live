@@ -157,11 +157,11 @@ def FetchData():
         print(myresult)
         print("===================================================")
 
-        emp_id = myresult['emp_id']
-        first_name = myresult['first_name']
-        last_name = myresult['last_name']
-        pri_skill = myresult['pri_skill']
-        location = myresult['location']
+        emp_id = myresult[0]
+        first_name = myresult[1]
+        last_name = myresult[2]
+        pri_skill = myresult[3]
+        location = myresult[4]
 
 
 
