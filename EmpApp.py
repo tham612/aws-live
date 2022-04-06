@@ -214,7 +214,7 @@ def AddTime():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddTimeOutput.html', name=emp_id)
+    return render_template('AddTimeOutput.html', id=emp_id, date=working_date, start=time_in, end=time_out)
 
 #get time
 @app.route("/gettime", methods=['GET', 'POST'])
@@ -244,13 +244,6 @@ def FetchData():
         end_time = myresult[1]
         work_date = myresult[2]
         emp_id = myresult[3]
-
-
-
-
-        # restructure the name to pass to html page
-        # look at => return render_template('AddEmpOutput.html', name=emp_name)
-        #### emp_name = "" + first_name + " " + last_name
         
     finally:
         # close the database after use the database
