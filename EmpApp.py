@@ -29,8 +29,7 @@ def home():
 def GetEmp():
     return render_template('GetEmp.html')
 
-
-@app.route("/about", methods=['GET','POST'])
+@app.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
 
@@ -87,3 +86,56 @@ def AddEmp():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
+#time and attendance
+
+#view time
+@app.route('/viewtime')
+def useradmin():
+    cur = db_conn.cursor()
+    result = cur.execute("SELECT * FROM worktime")
+    employee = cur.fetchall()
+    return render_template('ViewTime.html', employee=employee)
+
+#add time
+@app.route("/addtime", methods=['GET', 'POST'])
+def AddTime():
+    emp_id = request.form['emp_id']
+    working_date = request.form['work_date']
+    time_in = request.form['time_in']
+    time_out = request.form['time_out']
+
+    insert_sql = "INSERT INTO worktime VALUES (%s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try
+        cursor.execute(insert_sql, (emp_id, working_date, time_in, time_out))
+        db_conn.commit()
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('AddTimeOutput.html', name=emp_id)
+    return render_template('AddTime.html')
+ 
+#update time
+@app.route('/updatetime', methods=['POST'])
+def updatetime():
+        pk = request.form['pk']
+        name = request.form['name']
+        value = request.form['value']
+        cur = db_conn.cursor()
+
+        if name == 'employeeid':
+           cur.execute("UPDATE worktime SET employeeid = %s WHERE id = %s ", (value, pk))
+        elif name == 'date':
+           cur.execute("UPDATE worktime SET work_date = %s WHERE id = %s ", (value, pk))
+        elif name == 'start_time':
+           cur.execute("UPDATE worktime SET start_time = %s WHERE id = %s ", (value, pk))
+        elif name == 'end_time':
+           cur.execute("UPDATE worktime SET end_time = %s WHERE id = %s ", (value, pk))
+        
+        mysql.connection.commit()
+        cur.close()
+        return json.dumps({'status':'OK'})
