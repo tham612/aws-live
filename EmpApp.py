@@ -152,7 +152,7 @@ def FetchData():
         db_conn.commit()
 
         # if SELECT:
-        myresult = cursor..fetchone()
+        myresult = cursor.fetchone()
         print(myresult)
 
         emp_id = myresult['emp_id']
