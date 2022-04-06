@@ -220,6 +220,48 @@ def AddTime():
 @app.route("/gettime", methods=['GET', 'POST'])
 def GetEmp():
     return render_template('ViewTime.html')
+
+@app.route("/fetchtime", methods=['GET', 'POST'])
+def FetchData():
+
+    emp_id = request.form['emp_id']
+
+    cursor = db_conn.cursor()
+    select_sql = "SELECT * FROM worktime WHERE emp_id = %s"
+    adr = (emp_id, )
+
+    try:
+        cursor.execute(select_sql, adr) 
+
+        # if SELECT:
+        myresult = cursor.fetchone()
+        print("===================================================")
+        print("========== in db =============")
+        print(myresult)
+        print("===================================================")
+
+        start_time = myresult[0]
+        end_time = myresult[1]
+        work_date = myresult[2]
+        emp_id = myresult[3]
+
+
+
+
+        # restructure the name to pass to html page
+        # look at => return render_template('AddEmpOutput.html', name=emp_name)
+        #### emp_name = "" + first_name + " " + last_name
+        
+    finally:
+        # close the database after use the database
+        cursor.close()
+
+    # some text display, but not in html page
+    print("all modification done...")
+
+    return render_template('GetEmpOutput.html', id=emp_id, stime=start_time, etime=end_time, wdate=work_date) #image_url
+
+
  
 #update time
 @app.route('/updatetime', methods=['POST'])
