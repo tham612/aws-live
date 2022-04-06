@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Employee Information</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
+
+	<script src="https://kit.fontawesome.com/4a56ab7ab5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Employee</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE
+						INFORMATION</button>
+					<!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+				</li>
+				<!-- <li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						Dropdown link
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</nav>
+
+	<br>
+	<div class="container">
+		<h1 style="color: DodgerBlue">Employee Time</h1>
+
+		<form>
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						Employee ID:<br> <div class="form-control">{{ id }}</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						Working Date:<br> <div class="form-control">{{ wdate }}</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						Start Time:<br> <div class="form-control">{{ stime }}</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						End Time:<br> <div class="form-control">{{ etime }}</div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<!-- <button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button> -->
+			<button type="submit" formaction="http://3.134.115.108:80/getemp" class="btn btn-primary mb-2">RESET</button><br><br>
+
+		</form>
+
+		<!-- <form>
+
+			<div>
+
+				Employee ID:<br> {{ id }} <br><br>
+
+				Working Date:<br> {{ wdate }} <br><br>
+
+				Start Time:<br> {{ stime }} <br><br>
+
+				End Time:<br> {{ etime }} <br><br>
+
+				<button type="submit" formaction="http://3.134.115.108:80/gettime">RESET</button><br><br>
+
+			</div>
+
+		</form> -->
+
+	</div>
+</body>
+
+</html>
