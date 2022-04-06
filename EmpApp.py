@@ -197,7 +197,7 @@ def useradmin():
 
 #add time
 @app.route("/addtime", methods=['GET', 'POST'])
-def AddTime():
+def addtime():
     emp_id = request.form['emp_id']
     working_date = request.form['work_date']
     time_in = request.form['time_in']
