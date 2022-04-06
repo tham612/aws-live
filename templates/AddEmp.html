@@ -16,60 +16,90 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 	</script>
+	<script src="https://kit.fontawesome.com/4a56ab7ab5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Employee</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE INFORMATION</button>
+					<!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+				</li>
+				<!-- <li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						Dropdown link
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</nav>
+
+	<br>
 	<div class="container">
 
-			<h1 style="color: DodgerBlue">Employee Database</h1>
+		<h1 style="color: DodgerBlue">Employee Database</h1>
 
-			<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
-				<button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE INFORMATION</button> 
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-12 col-md-6">
-						<div class="form-group">
-							Employee ID:<br> <input class="form-control" type="number" name="emp_id"
-							autofocus size="40"> 
-						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div class="form-group">
-							First Name:<br> <input class="form-control" type="text"
-							name="first_name"> 
-						</div>
-					</div>
-					<div class="col-12 col-md-6">
+		<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+			<!-- <button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE INFORMATION</button> -->
+			<!-- <br> -->
+			<br>
+			<div class="row">
+				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Last Name:<br> <input class="form-control" type="text"
-						name="last_name"> 
+						Employee ID:<br> <input class="form-control" type="number" name="emp_id" autofocus size="40">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Primary Skills:<br> <input class="form-control" type="text"
-						name="pri_skill"> 
+						First Name:<br> <input class="form-control" type="text" name="first_name">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Location:<br> <input class="  form-control" type="text" name="location"> 
+						Last Name:<br> <input class="form-control" type="text" name="last_name">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Image: <input type=file name="emp_image_file" class="form-control">  
+						Primary Skills:<br> <input class="form-control" type="text" name="pri_skill">
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						Location:<br> <input class="  form-control" type="text" name="location">
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						Image: <input type=file name="emp_image_file" class="form-control">
 					</div>
 				</div>
 			</div>
-				
-				<button type="submit"
-				class="btn btn-primary mb-2">UPDATE
-					DATABASE</button>
-	
-			</form>
-			<a href="/about">About Us</a>
+
+			<button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button>
+			<button type="submit" formaction="/addtime" class="btn btn-primary mb-2">Time And Attendance</button>
+
+		</form>
+		<a href="/about">About Us</a>
 
 	</div>
 
