@@ -112,27 +112,14 @@
 
 		</form>
 
-		<!-- <form>
-
-			<div>
-
-				Employee ID:<br> {{ id }} <br><br>
-
-				First Name:<br> {{ fname }} <br><br>
-
-				Last Name:<br> {{ lname }} <br><br>
-
-				Primary Interest:<br> {{ interest }} <br><br>
-
-				Location:<br> {{ location }} <br><br>
-
-				Image URL: <br> {{ image_url }} <br><br>
-
-				<button type="submit" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
-
-			</div>
-
-		</form> -->
+		{% for row in allData %}
+		<tr>
+			<td data-pk="{{row.id}}">{{row.id}}</td>
+			<td data-name="name" class="name" data-type="text" >{{row.emp_id}}</td>
+			<td data-name="email" class="email" data-type="text">{{row.first_name}}</td>
+			<td data-name="phone" class="phone" data-type="text">{{row.last_name}}</td>
+		</tr>
+		{% endfor %}
 
 	</div>
 </body>
