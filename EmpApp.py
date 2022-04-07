@@ -117,10 +117,11 @@ def AddEmp():
 
     try:
         print("===========================")
-        print(emp_image_file.filename)
+        print(emp_image_file.filename.split("."))
         print("===========================")
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file.jpg"
+        fileType = emp_image_file.filename.split(".")
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file." + fileType[1]
         s3 = boto3.resource('s3')
 
         try:
@@ -234,8 +235,12 @@ def EditEmpFunc():
         return "Please select a file"
 
     try:
+        print("===========================")
+        print(emp_image_file.filename.split("."))
+        print("===========================")
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        fileType = emp_image_file.filename.split(".")
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file." + fileType[1]
         s3 = boto3.resource('s3')
 
         try:
