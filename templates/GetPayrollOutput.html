@@ -2,8 +2,7 @@
 <html>
 
 <head>
-	<title>Add Employee Payroll</title>
-
+	<title>Employee Time</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -16,6 +15,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 	</script>
+
 	<script src="https://kit.fontawesome.com/4a56ab7ab5.js" crossorigin="anonymous"></script>
 </head>
 
@@ -61,47 +61,47 @@
 
 	<br>
 	<div class="container">
+		<h1 style="color: DodgerBlue">Employee Time</h1>
 
-		<h1 style="color: DodgerBlue">Add Payroll Database</h1>
-
-		<form action="/addpayroll" autocomplete="on" method="POST" enctype="multipart/form-data">
-			<br>
+		<form action="/fetchdatapayrollEdit" method="POST">
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Employee ID:<br> <input class="form-control" type="number" name="emp_id" autofocus size="40">
+						Employee ID:<br> <div class="form-control">{{ id }}</div>
+						<input type="hidden" name="emp_id" value="{{ id }}">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Pay/Hour (RM):<br> <input class="form-control" type="text" name="pay_hour">
+						Pay/Hour (RM):<br> <div class="form-control">{{ pay_hour }}</div>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Over Time Pay/Hour (RM):<br> <input class="form-control" type="text" name="otpay_hour">
+						Over Time Pay/Hour (RM):<br> <div class="form-control">{{ otpay_hour }}</div>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Total Hours Work (/h):<br> <input class="form-control" type="text" name="totalh_work">
+						Total Hours Work (/h):<br> <div class="form-control">{{ totalh_work }}</div>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Total Hours OT Work (/h):<br> <input class="form-control" type="text" name="totalhot_work">
+						Total Hours OT Work (/h):<br> <div class="form-control">{{ totalhot_work }}</div>
 					</div>
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary mb-2">ADD Payroll</button>
-		
+			<!-- <button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button> -->
+			<button type="submit" class="btn btn-link"><i class="fas fa-pen"></i> GO TO UPDATE Payroll DATABASE PAGE</button>
+			<br>
+			<br>
+			<a type="submit" href="/getemp" class="btn btn-primary mb-2">RESET</a><br><br>
+
 		</form>
-		<!-- <a href="/about">About Us</a> -->
 
 	</div>
-
-
 </body>
 
 </html>

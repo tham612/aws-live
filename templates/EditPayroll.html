@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Add Employee Payroll</title>
+	<title>Edit Payroll Information</title>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -62,40 +62,35 @@
 	<br>
 	<div class="container">
 
-		<h1 style="color: DodgerBlue">Add Payroll Database</h1>
+		<h1 style="color: DodgerBlue">Edit Employee Database</h1>
 
-		<form action="/addpayroll" autocomplete="on" method="POST" enctype="multipart/form-data">
+		<form action="/edittimeE" autocomplete="on" method="POST" enctype="multipart/form-data">
 			<br>
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Employee ID:<br> <input class="form-control" type="number" name="emp_id" autofocus size="40">
+						Employee ID:<br> <input class="form-control" value="{{ id }}" type="number" name="emp_id" autofocus size="40">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Pay/Hour (RM):<br> <input class="form-control" type="text" name="pay_hour">
+						Working Day:<br> <input class="form-control" value="{{ working_day }}" type="text" name="working_day">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Over Time Pay/Hour (RM):<br> <input class="form-control" type="text" name="otpay_hour">
+						Time In:<br> <input class="form-control" value="{{ time_in }}" type="text" name="time_in">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Total Hours Work (/h):<br> <input class="form-control" type="text" name="totalh_work">
-					</div>
-				</div>
-				<div class="col-12 col-md-6">
-					<div class="form-group">
-						Total Hours OT Work (/h):<br> <input class="form-control" type="text" name="totalhot_work">
+						Time Out:<br> <input class="form-control" value="{{ time_out }}" type="text" name="time_out">
 					</div>
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary mb-2">ADD Payroll</button>
-		
+			<button type="submit" class="btn btn-primary mb-2">UPDATE TIME</button>
+			
 		</form>
 		<!-- <a href="/about">About Us</a> -->
 
