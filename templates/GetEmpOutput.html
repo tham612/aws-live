@@ -20,11 +20,6 @@
 </head>
 
 <body>
-	<script>
-		let allData = document.getElementById("allData").value;
-
-		console.log(allData);
-	</script>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" href="/">Employee</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -73,7 +68,6 @@
 					<div class="form-group">
 						Employee ID:<br> <div class="form-control">{{ id }}</div>
 						<input type="hidden" name="emp_id" value="{{ id }}">
-						<input type="hidden" id="allData" value="{{ allData }}">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
@@ -112,14 +106,6 @@
 
 		</form>
 
-		{% for row in allData %}
-		<tr>
-			<td data-pk="{{row.id}}">{{row.id}}</td>
-			<td data-name="name" class="name" data-type="text" >{{row.emp_id}}</td>
-			<td data-name="email" class="email" data-type="text">{{row.first_name}}</td>
-			<td data-name="phone" class="phone" data-type="text">{{row.last_name}}</td>
-		</tr>
-		{% endfor %}
 
 	</div>
 </body>

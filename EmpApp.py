@@ -175,7 +175,7 @@ def FetchData():
     finally:
         cursor.close()
 
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url, allData=myresult)
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url)
 
 @app.route("/fetchdataEdit", methods=['GET', 'POST'])
 def FetchEmpEdit():
