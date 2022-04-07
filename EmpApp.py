@@ -250,7 +250,7 @@ def EditEmpFunc():
         except Exception as e:
             return str(e)
 
-        cursor.execute(update_sql, (emp_id, first_name, last_name, pri_skill, location, object_url))
+        cursor.execute(update_sql, (emp_id, first_name, last_name, pri_skill, location, object_url, emp_id))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
