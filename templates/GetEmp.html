@@ -84,9 +84,11 @@
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-primary mb-2">FETCH INFO</button><br>
-					<button type="submit" class="btn btn-primary mb-2">FETCH TIME</button><br>
-					<button type="submit" class="btn btn-primary mb-2">FETCH ATTENDANCE</button><br>
+					<div class="row d-flex justify-content-between">
+						<button type="submit" class="col-3 btn btn-outline-primary mb-2">FETCH INFO</button><br>
+						<button type="submit" formaction="/fetchtime" class="col-3 btn btn-outline-primary mb-2">FETCH TIME</button><br>
+						<button type="submit" formaction="/fetchattendance" class="col-3 btn btn-outline-primary mb-2">FETCH ATTENDANCE</button><br>
+					</div>
 
 					<!-- <button type="submit" formaction="http://3.134.115.108:80/" method="GET">GO TO UPDATE DATABASE PAGE</button> -->
 					<a href="/about"><i class="fas fa-pen"></i> GO TO UPDATE DATABASE PAGE</a>

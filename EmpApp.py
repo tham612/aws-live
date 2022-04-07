@@ -230,7 +230,7 @@ def GetEmp():
     return render_template('ViewTime.html')
 
 @app.route("/fetchtime", methods=['GET', 'POST'])
-def FetchData():
+def FetchTime():
 
     emp_id = request.form['emp_id']
 
