@@ -87,7 +87,7 @@ and open the template in the editor.
         </div>
     </nav>
 
-    <div class="container-fluid my-5 text-center" style="padding-top: 100px;">
+    <div class="container d-flex justify-content-center" style="padding-top: 100px;">
         <div class="row">
             <div class="col-sm">
                 <div class="col card" style="background-color: aliceblue">
@@ -108,16 +108,16 @@ and open the template in the editor.
                     </br>
                     <form action="/fetchdataEdit" method="POST">
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     Employee ID:<br> <input class="form-control" type="number" name="emp_id" autofocus
                                         size="40">
                                 </div>
                             </div>
                         </div>
-                        <button type="button" formaction="/InAttendance" class="btn btn-primary mb-2">CheckIN</button>
+                        <button type="button" formaction="/InAttendance" class="col-12 btn btn-primary mb-2">CheckIN</button>
                         </br>
-                        <button type="button" formaction="/OutAttendance" class="btn btn-primary mb-2">CheckOut</button>
+                        <button type="button" formaction="/OutAttendance" class="col-12 btn btn-secondary mb-2">CheckOut</button>
                     </form>
                     </br>
                 </div>
