@@ -20,8 +20,8 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Employee</a>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="/">Employee</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -33,23 +33,27 @@
 						<button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE INFORMATION</button>
 					</form>
 				</li> -->
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="/">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/getemp">GET EMPLOYEE INFORMATION</a>
-				</li>
-				<!-- <li class="nav-item dropdown">
+				</li> -->
+				
+				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						Dropdown link
+						Home
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
+						<a class="dropdown-item" href="/">Employee Database</a>
+						<a class="dropdown-item" href="/addtimeP">Time Database</a>
+						<a class="dropdown-item" href="/attendanceempP">Attendance Database</a>
 					</div>
-				</li> -->
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/getemp">GET EMPLOYEE INFORMATION</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -94,7 +98,7 @@
 			</div>
 
 			<!-- <button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button> -->
-			<button type="submit" formaction="http://3.134.115.108:80/getemp" class="btn btn-primary mb-2">RESET</button><br><br>
+			<a type="submit" href="/getemp" class="btn btn-primary mb-2">RESET</a><br><br>
 
 		</form>
 
