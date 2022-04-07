@@ -31,23 +31,24 @@ and open the template in the editor.
             return ('0' + n).slice(-2);
         }
 
-        const timer = e =>{
-            e.preventDefault()
-            // Creates interval
-            const interval = setInterval(() => {
-                
-    
-                // Get current time
-                const now = new Date();
-    
-                // Format date as in mm/dd/aaaa hh:ii:ss
-                const dateTime = zeroFill((now.getMonth() + 1)) + '/' + zeroFill(now.getUTCDate()) + '/' + now
-                    .getFullYear() + ' ' + zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes()) + ':' +
-                    zeroFill(now.getSeconds());
-    
-                // Display the date and time on the screen using div#date-time
-                document.getElementById('date-time').innerHTML = dateTime;
-            }, 1000);
+        // Creates interval
+        const interval = setInterval(() => {
+            
+
+            // Get current time
+            const now = new Date();
+
+            // Format date as in mm/dd/aaaa hh:ii:ss
+            const dateTime = zeroFill((now.getMonth() + 1)) + '/' + zeroFill(now.getUTCDate()) + '/' + now
+                .getFullYear() + ' ' + zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes()) + ':' +
+                zeroFill(now.getSeconds());
+
+            // Display the date and time on the screen using div#date-time
+            document.getElementById('date-time').innerHTML = dateTime;
+        }, 1000);
+
+        function clearTimer(){
+            clearTimeout(interval);
         }
     </script>
 
@@ -121,9 +122,9 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                        <button type="button" formaction="/check_in" class="col-12 btn btn-primary mb-2">CHECK IN</button>
+                        <button type="button" formaction="/check_in" onclick="clearTimer" class="col-12 btn btn-primary mb-2">CHECK IN</button>
                         </br>
-                        <button type="button" formaction="/check_out" class="col-12 btn btn-secondary mb-2">CHECK Out</button>
+                        <button type="button" formaction="/check_out" onclick="clearTimer" class="col-12 btn btn-secondary mb-2">CHECK Out</button>
                     </form>
                     </br>
                 </div>
