@@ -496,7 +496,7 @@ def EditPayroll():
     totalh_work = request.form['totalh_work']
     totalhot_work = request.form['totalhot_work']
 
-    update_sql = "UPDATE payroll SET emp_id = %s, pay_hour = %s, ot_hour = %s, totalh_work = %s, totalhot_work = %s WHERE emp_id = %s"
+    update_sql = "UPDATE payroll SET emp_id = %s, pay_hour = %s, ot_hour = %s, total_hour_work = %s, total_ot_work = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
     try:
