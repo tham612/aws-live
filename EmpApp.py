@@ -378,8 +378,47 @@ def EditTime():
     return render_template('AddTimeOutput.html', timeOut=timeS)
 
 
+# edit attendance - check in
+@app.route("/check_in", methods=['POST'])
+def CheckIn():
+    emp_id = request.form['emp_id']
 
+    update_sql = "UPDATE attendance SET check_in = current_timestamp() WHERE emp_id = %s"
+    cursor = db_conn.cursor()
 
+    try:
+        cursor.execute(update_sql, (emp_id))
+        db_conn.commit()
+
+    finally:
+        cursor.close()
+
+    checkinout = "Check In"
+    empID = emp_id
+
+    print("all modification done...")
+    return render_template('attendanceOutput.html', checkinout=checkinout, empID=empID)
+
+# edit attendance - check out
+@app.route("/check_out", methods=['POST'])
+def CheckOut():
+    emp_id = request.form['emp_id']
+
+    update_sql = "UPDATE attendance SET check_out = current_timestamp() WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(update_sql, (emp_id))
+        db_conn.commit()
+
+    finally:
+        cursor.close()
+
+    checkinout = "Check Out"
+    empID = emp_id
+
+    print("all modification done...")
+    return render_template('attendanceOutput.html', checkinout=checkinout, empID=empID)
 
 
 
