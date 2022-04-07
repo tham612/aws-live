@@ -421,7 +421,34 @@ def CheckOut():
     return render_template('attendanceOutput.html', checkinout=checkinout, empID=empID)
 
 
+#Fetch Attendance ok
+@app.route("/fetchattendance", methods=['GET', 'POST'])
+def FetchAttendance():
 
+    emp_id = request.form['emp_id']
+
+    cursor = db_conn.cursor()
+    select_sql = "SELECT * FROM attendance WHERE emp_id = %s"
+    adr = (emp_id, )
+
+    try:
+        cursor.execute(select_sql, adr) 
+
+        # if SELECT:
+        myresult = cursor.fetchone()
+
+        emp_id = myresult[0]
+        check_in = myresult[1]
+        check_out = myresult[2]
+        
+    finally:
+        # close the database after use the database
+        cursor.close()
+
+    # some text display, but not in html page
+    print("all modification done...")
+
+    return render_template('GetTimeOutput.html', id=emp_id, check_in=check_in, check_out=check_out)
 
 
 

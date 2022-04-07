@@ -2,112 +2,99 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Attendance Page </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+  <title>Employee Attendance</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
 
+  <script src="https://kit.fontawesome.com/4a56ab7ab5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="/">Employee</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<!-- <li class="nav-item active">
+    <a class="navbar-brand" href="/">Employee</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item active">
 					<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
 						<button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE INFORMATION</button>
 					</form>
 				</li> -->
-				<!-- <li class="nav-item">
+        <!-- <li class="nav-item">
 					<a class="nav-link" href="/">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/getemp">GET EMPLOYEE INFORMATION</a>
 				</li> -->
-				
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						Home
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="/">Employee Database</a>
-						<a class="dropdown-item" href="/addtimeP">Time Database</a>
-						<a class="dropdown-item" href="/attendanceempP">Attendance Database</a>
-						<a class="dropdown-item" href="/payrollP">Payroll Database</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/getemp">GET EMPLOYEE INFORMATION</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Home
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/">Employee Database</a>
+            <a class="dropdown-item" href="/addtimeP">Time Database</a>
+            <a class="dropdown-item" href="/attendanceempP">Attendance Database</a>
+            <a class="dropdown-item" href="/payrollP">Payroll Database</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/getemp">GET EMPLOYEE INFORMATION</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br>
   <div class="container">
-    <h3 class="display-6 fw-bold pb-2">Attendance Record</h3>
+    <h1 style="color: DodgerBlue">Employee Time</h1>
 
+    <form action="/fetchdatatimeEdit" method="POST">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            Employee ID:<br>
+            <div class="form-control">{{ id }}</div>
+            <input type="hidden" name="emp_id" value="{{ id }}">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            Working Day:<br>
+            <div class="form-control">{{ check_in }}</div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            Time In:<br>
+            <div class="form-control">{{ check_out }}</div>
+          </div>
+        </div>
+      </div>
 
+      <!-- <button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button> -->
+      <!-- <button type="submit" class="btn btn-link"><i class="fas fa-pen"></i> GO TO UPDATE TIME DATABASE PAGE</button>
+      <br>
+      <br> -->
+      <a type="submit" href="/getemp" class="btn btn-primary mb-2">RESET</a><br><br>
 
+    </form>
 
+  </div>
+</body>
 
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">AttendanceID</th>
-          <th scope="col">EmployeeID</th>
-
-          <th scope="col">TimeIN</th>
-          <th scope="col">TimeOut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-
-          <td>
-            <input type="text" name="attendanceID" required ">  
-                  
-          </td>
-      
-
-          <td>    
-              <input type=" text" name="empID" required ">  
-                  
-          </td>
-        
-
-          <td>    
-              <input type=" text" name="timeIn" required ">  
-                  
-          </td>
-
-  
-   
-          <td>    
-               <div class=" input-group mb-3">
-            <input type="text" name="timeOut" required ">  
-                  </div>
-          </td>
-          
-    </tr>
-     
-       
-  </tbody>
-</table>
-       </div>
-</body>     
-</html>  
+</html>
