@@ -171,21 +171,42 @@ def FetchData():
         pri_skill = myresult[3]
         location = myresult[4]
         image_url = myresult[5]
-
-
-
-        # restructure the name to pass to html page
-        # look at => return render_template('AddEmpOutput.html', name=emp_name)
-        #### emp_name = "" + first_name + " " + last_name
         
     finally:
-        # close the database after use the database
         cursor.close()
 
-    # some text display, but not in html page
-    print("all modification done...")
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url)
 
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url) #image_url
+@app.route("/fetchdataEdit", methods=['GET', 'POST'])
+def FetchEmpEdit():
+
+    emp_id = request.form['emp_id']
+
+    cursor = db_conn.cursor()
+    select_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    adr = (emp_id, )
+
+    try:
+        cursor.execute(select_sql, adr) 
+
+        # if SELECT:
+        myresult = cursor.fetchone()
+        print("===================================================")
+        print("========== in db =============")
+        print(myresult)
+        print("===================================================")
+
+        emp_id = myresult[0]
+        first_name = myresult[1]
+        last_name = myresult[2]
+        pri_skill = myresult[3]
+        location = myresult[4]
+        image_url = myresult[5]
+        
+    finally:
+        cursor.close()
+
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url)
 
 
 if __name__ == '__main__':

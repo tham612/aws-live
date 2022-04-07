@@ -62,8 +62,13 @@
 	<div class="container">
 		<h1 style="color: DodgerBlue">Employee Information</h1>
 
-		<form>
+		<form action="/fetchdataEdit" method="GET">
 			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="form-group">
+						Employee ID:<br> <input type="text" class="form-control" value="<% id %>">
+					</div>
+				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
 						Employee ID:<br> <div class="form-control">{{ id }}</div>
@@ -98,6 +103,7 @@
 			</div>
 
 			<!-- <button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button> -->
+			<button type="submit" class="btn btn-light"><i class="fas fa-pen"></i> GO TO UPDATE DATABASE PAGE</button>
 			<a type="submit" href="/getemp" class="btn btn-primary mb-2">RESET</a><br><br>
 
 		</form>
