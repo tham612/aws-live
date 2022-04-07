@@ -448,7 +448,7 @@ def FetchAttendance():
     # some text display, but not in html page
     print("all modification done...")
 
-    return render_template('GetTimeOutput.html', id=emp_id, check_in=check_in, check_out=check_out)
+    return render_template('attendancePage.html', id=emp_id, check_in=check_in, check_out=check_out)
 
 
 
