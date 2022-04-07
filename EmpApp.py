@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from flask import Flask, render_template, request
 from pymysql import connections
 import os
@@ -145,7 +144,7 @@ def AddEmp():
             return str(e)
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, object_url))
-        cursor.execute("INSERT INTO attendance VALUES (%s, %s, %s)", (emp_id, NULL, NULL))
+        cursor.execute("INSERT INTO attendance VALUES (%s, %s, %s)", (emp_id, "", ""))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
 
