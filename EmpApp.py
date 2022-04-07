@@ -434,7 +434,7 @@ def FetchPayroll():
     emp_id = request.form['emp_id']
 
     cursor = db_conn.cursor()
-    select_sql = "SELECT * FROM worktime WHERE emp_id = %s"
+    select_sql = "SELECT * FROM payroll WHERE emp_id = %s"
     adr = (emp_id, )
 
     try:
@@ -465,7 +465,7 @@ def FetchPayrollEdit():
     emp_id = request.form['emp_id']
 
     cursor = db_conn.cursor()
-    select_sql = "SELECT * FROM worktime WHERE emp_id = %s"
+    select_sql = "SELECT * FROM payroll WHERE emp_id = %s"
     adr = (emp_id, )
 
     try:
@@ -496,7 +496,7 @@ def EditPayroll():
     totalh_work = request.form['totalh_work']
     totalhot_work = request.form['totalhot_work']
 
-    update_sql = "UPDATE worktime SET emp_id = %s, pay_hour = %s, otpay_hour = %s, totalh_work = %s, totalhot_work = %s WHERE emp_id = %s"
+    update_sql = "UPDATE payroll SET emp_id = %s, pay_hour = %s, otpay_hour = %s, totalh_work = %s, totalhot_work = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
 
     try:
