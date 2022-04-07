@@ -379,7 +379,7 @@ def EditTime():
 
 
 # edit attendance - check in
-@app.route("/check_in", methods=['POST'])
+@app.route("/attendanceEdit/check_in", methods=['POST'])
 def CheckIn():
     emp_id = request.form['emp_id']
 
@@ -400,7 +400,7 @@ def CheckIn():
     return render_template('attendanceOutput.html', checkinout=checkinout, empID=empID)
 
 # edit attendance - check out
-@app.route("/check_out", methods=['POST'])
+@app.route("/attendanceEdit/check_out", methods=['POST'])
 def CheckOut():
     emp_id = request.form['emp_id']
 
