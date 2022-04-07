@@ -402,8 +402,8 @@ def FetchAttendance():
 
 
 #add payroll
-@app.route("/addtime", methods=['POST'])
-def AddTime():
+@app.route("/addpayroll", methods=['POST'])
+def AddPayroll():
     emp_id = request.form['emp_id']
     pay_hour = request.form['pay_hour']
     otpay_hour = request.form['otpay_hour']
@@ -429,7 +429,7 @@ def AddTime():
 
 #Fetch payroll ok
 @app.route("/fetchpayroll", methods=['GET', 'POST'])
-def FetchTime():
+def FetchPayroll():
 
     emp_id = request.form['emp_id']
 
@@ -460,7 +460,7 @@ def FetchTime():
 
 # Fetch payroll Edit
 @app.route("/fetchdatapayrollEdit", methods=['GET', 'POST'])
-def FetchTimeEdit():
+def FetchPayrollEdit():
 
     emp_id = request.form['emp_id']
 
@@ -489,7 +489,7 @@ def FetchTimeEdit():
 
 #edit payroll
 @app.route("/edittimeE", methods=['POST'])
-def EditTime():
+def EditPayroll():
     emp_id = request.form['emp_id']
     pay_hour = request.form['pay_hour']
     otpay_hour = request.form['otpay_hour']
