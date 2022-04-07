@@ -59,11 +59,9 @@
     <br>
     <div class="container">
 
-        <h1 style="color: DodgerBlue">Employee Schedule</h1>
+        <h1 style="color: DodgerBlue">Add Time Database</h1>
 
         <form action="/addtime" autocomplete="on" method="POST" enctype="multipart/form-data">
-            <!-- <button type="submit" formaction="/getemp" class="btn btn-outline-info">GET EMPLOYEE INFORMATION</button> -->
-            <!-- <br> -->
             <br>
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -73,7 +71,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
-                        Working Date:<br> <input class="form-control" type="date" name="work_date">
+                        Working Day:<br> <input class="form-control" type="number" name="work_day">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -90,7 +88,7 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary mb-2">Update Time</button>
+            <button type="submit" class="btn btn-primary mb-2">ADD TIME</button>
 
         </form>
         <!-- <a href="/about">About Us</a> -->

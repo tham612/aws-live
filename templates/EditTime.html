@@ -2,7 +2,8 @@
 <html>
 
 <head>
-	<title>Employee Information</title>
+	<title>Edit Time Information</title>
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -15,7 +16,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 	</script>
-
 	<script src="https://kit.fontawesome.com/4a56ab7ab5.js" crossorigin="anonymous"></script>
 </head>
 
@@ -61,42 +61,42 @@
 
 	<br>
 	<div class="container">
-		<h1 style="color: DodgerBlue">Employee Time</h1>
 
-		<form action="/fetchdatatimeEdit" method="POST">
+		<h1 style="color: DodgerBlue">Edit Employee Database</h1>
+
+		<form action="/edittimeE" autocomplete="on" method="POST" enctype="multipart/form-data">
+			<br>
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Employee ID:<br> <div class="form-control">{{ id }}</div>
+						Employee ID:<br> <input class="form-control" value="{{ id }}" type="number" name="emp_id" autofocus size="40">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Working Day:<br> <div class="form-control">{{ working_day }}</div>
+						Working Day:<br> <input class="form-control" value="{{ work_day }}" type="text" name="first_name">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Time In:<br> <div class="form-control">{{ time_in }}</div>
+						Time In:<br> <input class="form-control" value="{{ time_in }}" type="text" name="last_name">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Time Out:<br> <div class="form-control">{{ time_out }}</div>
+						Time Out:<br> <input class="form-control" value="{{ time_out }}" type="text" name="pri_skill">
 					</div>
-				</div>
 				</div>
 			</div>
 
-			<!-- <button type="submit" class="btn btn-primary mb-2">UPDATE DATABASE</button> -->
-			<button type="submit" class="btn btn-link"><i class="fas fa-pen"></i> GO TO UPDATE TIME DATABASE PAGE</button>
-			<br>
-			<br>
-			<a type="submit" href="/getemp" class="btn btn-primary mb-2">RESET</a><br><br>
-
+			<button type="submit" class="btn btn-primary mb-2">UPDATE TIME</button>
+			
 		</form>
+		<!-- <a href="/about">About Us</a> -->
 
 	</div>
+
+
 </body>
 
 </html>

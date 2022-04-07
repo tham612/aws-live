@@ -213,11 +213,6 @@ def FetchEmpEdit():
     return render_template('EditEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url)
 
 
-
-    
-
-
-
 @app.route("/editempE", methods=['GET', 'POST'])
 def EditEmpFunc():
 
@@ -276,13 +271,110 @@ def EditEmpFunc():
 
 
 
+#add time
+@app.route("/addtime", methods=['POST'])
+def AddTime():
+    emp_id = request.form['emp_id']
+    working_day = request.form['work_day']
+    time_in = request.form['time_in']
+    time_out = request.form['time_out']
+
+    insert_sql = "INSERT INTO worktime VALUES (%s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(insert_sql, (emp_id, working_day, time_in, time_out))
+        db_conn.commit()
+
+    finally:
+        cursor.close()
+
+    timeS = emp_id + " " + working_day + " " + time_in + " " + time_out
+
+    print("all modification done...")
+    return render_template('AddTimeOutput.html', timeOut=timeS)
+
+
+#Fetch time
+@app.route("/fetchtime", methods=['GET', 'POST'])
+def FetchTime():
+
+    emp_id = request.form['emp_id']
+
+    cursor = db_conn.cursor()
+    select_sql = "SELECT * FROM worktime WHERE emp_id = %s"
+    adr = (emp_id, )
+
+    try:
+        cursor.execute(select_sql, adr) 
+
+        # if SELECT:
+        myresult = cursor.fetchone()
+
+        emp_id = myresult[0]
+        working_day = myresult[1]
+        time_in = myresult[2]
+        time_out = myresult[3]
+        
+    finally:
+        # close the database after use the database
+        cursor.close()
+
+    # some text display, but not in html page
+    print("all modification done...")
+
+    return render_template('GetEmpOutput.html', id=emp_id, working_day=working_day, time_in=time_in, time_out=time_out)
+
+
+@app.route("/fetchdatatimeEdit", methods=['GET', 'POST'])
+def FetchTimeEdit():
+
+    emp_id = request.form['emp_id']
+
+    cursor = db_conn.cursor()
+    select_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    adr = (emp_id, )
+
+    try:
+        cursor.execute(select_sql, adr) 
+
+        # if SELECT:
+        myresult = cursor.fetchone()
+
+        emp_id = myresult[0]
+        working_day = myresult[1]
+        time_in = myresult[2]
+        time_out = myresult[3]
+        
+    finally:
+        cursor.close()
+
+    return render_template('EditTime.html', id=emp_id, working_day=working_day, time_in=time_in, time_out=time_out)
 
 
 
+#edit time
+@app.route("/edittimeE", methods=['POST'])
+def EditTime():
+    emp_id = request.form['emp_id']
+    working_day = request.form['work_day']
+    time_in = request.form['time_in']
+    time_out = request.form['time_out']
 
+    update_sql = "UPDATE worktime SET emp_id = %s, working_day = %s, time_in = %s, time_out = %s WHERE emp_id = %s"
+    cursor = db_conn.cursor()
 
+    try:
+        cursor.execute(update_sql, (emp_id, working_day, time_in, time_out, emp_id))
+        db_conn.commit()
 
+    finally:
+        cursor.close()
 
+    timeS = emp_id + " " + working_day + " " + time_in + " " + time_out
+
+    print("all modification done...")
+    return render_template('AddTimeOutput.html', timeOut=timeS)
 
 
 
