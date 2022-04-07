@@ -63,37 +63,37 @@
 
 		<h1 style="color: DodgerBlue">Edit Employee Database</h1>
 
-		<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+		<form action="/editemp" autocomplete="on" method="POST" enctype="multipart/form-data">
 			<br>
 			<div class="row">
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Employee ID:<br> <input class="form-control" type="number" name="emp_id" autofocus size="40">
+						Employee ID:<br> <input class="form-control" value="{{ id }}" type="number" name="emp_id" autofocus size="40">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						First Name:<br> <input class="form-control" type="text" name="first_name">
+						First Name:<br> <input class="form-control" value="{{ fname }}" type="text" name="first_name">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Last Name:<br> <input class="form-control" type="text" name="last_name">
+						Last Name:<br> <input class="form-control" value="{{ lname }}" type="text" name="last_name">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Primary Skills:<br> <input class="form-control" type="text" name="pri_skill">
+						Primary Skills:<br> <input class="form-control" value="{{ interest }}" type="text" name="pri_skill">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Location:<br> <input class="  form-control" type="text" name="location">
+						Location:<br> <input class="  form-control" value="{{ location }}" type="text" name="location">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<div class="form-group">
-						Image: <input type=file name="emp_image_file" class="form-control">
+						Image: <input type=file name="emp_image_file" value="{{ image_url }}" class="form-control">
 					</div>
 				</div>
 			</div>
