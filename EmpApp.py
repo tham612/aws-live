@@ -227,7 +227,7 @@ def EditEmpFunc():
     pri_skill = request.form['pri_skill']
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
-    emp_image_file_hide = request.files['emp_image_file_hide']
+    emp_image_file_hide = request.form['emp_image_file_hide']
 
     update_sql = "UPDATE employee SET emp_id = %s, first_name = %s, last_name = %s, pri_skill = %s, location = %s, image_url = %s WHERE emp_id = %s"
     cursor = db_conn.cursor()
