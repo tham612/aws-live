@@ -295,7 +295,7 @@ def AddTime():
     return render_template('AddTimeOutput.html', timeOut=timeS)
 
 
-#Fetch time
+#Fetch time ok
 @app.route("/fetchtime", methods=['GET', 'POST'])
 def FetchTime():
 
@@ -323,9 +323,9 @@ def FetchTime():
     # some text display, but not in html page
     print("all modification done...")
 
-    return render_template('GetEmpOutput.html', id=emp_id, working_day=working_day, time_in=time_in, time_out=time_out)
+    return render_template('GetTimeOutput.html', id=emp_id, working_day=working_day, time_in=time_in, time_out=time_out)
 
-
+# Fetch Time Edit
 @app.route("/fetchdatatimeEdit", methods=['GET', 'POST'])
 def FetchTimeEdit():
 
@@ -397,104 +397,6 @@ def EditTime():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
 # =======================================================================================
-
-#time and attendance
-
-#view time
-@app.route('/viewtime')
-def UserAdmin():
-    cur = db_conn.cursor()
-    result = cur.execute("SELECT * FROM worktime")
-    employee = cur.fetchall()
-    return render_template('ViewTime.html', employee=employee)
-
-#add time
-@app.route("/addtime", methods=['POST'])
-def AddTime():
-    emp_id = request.form['emp_id']
-    working_date = request.form['work_date']
-    time_in = request.form['time_in']
-    time_out = request.form['time_out']
-
-    insert_sql = "INSERT INTO worktime VALUES (%s, %s, %s, %s)"
-    cursor = db_conn.cursor()
-
-    try:
-        cursor.execute(insert_sql, (emp_id, working_date, time_in, time_out))
-        db_conn.commit()
-
-    finally:
-        cursor.close()
-
-    print("all modification done...")
-    return render_template('AddTimeOutput.html', id=emp_id, date=working_date, start=time_in, end=time_out)
-
-#get time
-@app.route("/gettime", methods=['GET', 'POST'])
-def GetEmp():
-    return render_template('ViewTime.html')
-
-@app.route("/fetchtime", methods=['GET', 'POST'])
-def FetchTime():
-
-    emp_id = request.form['emp_id']
-
-    cursor = db_conn.cursor()
-    select_sql = "SELECT * FROM worktime WHERE emp_id = %s"
-    adr = (emp_id, )
-
-    try:
-        cursor.execute(select_sql, adr) 
-
-        # if SELECT:
-        myresult = cursor.fetchone()
-        print("===================================================")
-        print("========== in db =============")
-        print(myresult)
-        print("===================================================")
-
-        start_time = myresult[0]
-        end_time = myresult[1]
-        work_date = myresult[2]
-        emp_id = myresult[3]
-        
-    finally:
-        # close the database after use the database
-        cursor.close()
-
-    # some text display, but not in html page
-    print("all modification done...")
-
-    return render_template('GetEmpOutput.html', id=emp_id, stime=start_time, etime=end_time, wdate=work_date) #image_url
-
-
- 
-#update time
-@app.route('/updatetime', methods=['POST'])
-def UpdateTime():
-        pk = request.form['pk']
-        name = request.form['name']
-        value = request.form['value']
-        cur = db_conn.cursor()
-
-        if name == 'employeeid':
-           cur.execute("UPDATE worktime SET employeeid = %s WHERE id = %s ", (value, pk))
-        elif name == 'date':
-           cur.execute("UPDATE worktime SET work_date = %s WHERE id = %s ", (value, pk))
-        elif name == 'start_time':
-           cur.execute("UPDATE worktime SET start_time = %s WHERE id = %s ", (value, pk))
-        elif name == 'end_time':
-           cur.execute("UPDATE worktime SET end_time = %s WHERE id = %s ", (value, pk))
-        
-        mysql.connection.commit()
-        cur.close()
-        return json.dumps({'status':'OK'})
-
-
-
-
-
-
 
 
 
