@@ -198,11 +198,15 @@ def FetchEmpEdit():
         pri_skill = myresult[3]
         location = myresult[4]
         image_url = myresult[5]
+
+        optionE = ""
+        for x in myresult:
+            optionE += "<option value'"+ x +"'>"+ x +"</option>"
         
     finally:
         cursor.close()
 
-    return render_template('EditEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url)
+    return render_template('EditEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_url, empOption=optionE)
 
 
 
