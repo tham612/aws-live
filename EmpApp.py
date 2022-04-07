@@ -211,8 +211,8 @@ if __name__ == '__main__':
 
 
 
-@app.route("/editemp", methods=['POST'])
-def EditEmpFunc():  # this is a function name
+@app.route("/editempE", methods=['GET', 'POST'])
+def EditEmpFunc():
 
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
