@@ -424,7 +424,7 @@ def AddPayroll():
     id = emp_id
 
     print("all modification done...")
-    return render_template('AddTimeOutput.html', id=id)
+    return render_template('AddPayrollOutput.html', id=id)
 
 
 #Fetch payroll ok
