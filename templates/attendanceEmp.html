@@ -32,7 +32,9 @@ and open the template in the editor.
         }
 
         // Creates interval
-        const interval = setInterval(() => {
+        const interval = setInterval((e) => {
+            e.preventDefault()
+            
             // Get current time
             const now = new Date();
 
