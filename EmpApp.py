@@ -357,7 +357,7 @@ def FetchTimeEdit():
 @app.route("/edittimeE", methods=['POST'])
 def EditTime():
     emp_id = request.form['emp_id']
-    working_day = request.form['work_day']
+    working_day = request.form['working_day']
     time_in = request.form['time_in']
     time_out = request.form['time_out']
 
