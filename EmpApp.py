@@ -488,7 +488,7 @@ def FetchPayrollEdit():
 
 
 #edit payroll
-@app.route("/edittimeE", methods=['POST'])
+@app.route("/editpayrollE", methods=['POST'])
 def EditPayroll():
     emp_id = request.form['emp_id']
     pay_hour = request.form['pay_hour']
