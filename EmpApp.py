@@ -91,7 +91,7 @@ def AddEmp():
             return str(e)
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, object_url))
-        cursor.execute("INSERT INTO attendance VALUES (%s, %s, %s)", (emp_id, "", ""))
+        cursor.execute("INSERT INTO attendance VALUES (%s, %s, %s, %s)", (0, emp_id, "", ""))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
 
