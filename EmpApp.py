@@ -227,11 +227,11 @@ def AddTime():
     time_in = request.form['time_in']
     time_out = request.form['time_out']
 
-    insert_sql = "INSERT INTO worktime VALUES (%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO worktime VALUES (%s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(insert_sql, (emp_id, working_day, time_in, time_out))
+        cursor.execute(insert_sql, (0, emp_id, working_day, time_in, time_out))
         db_conn.commit()
 
     finally:
@@ -411,11 +411,11 @@ def AddPayroll():
     totalhot_work = request.form['totalhot_work']
 
 
-    insert_sql = "INSERT INTO payroll VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO payroll VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(insert_sql, (emp_id, pay_hour, otpay_hour, totalh_work, totalhot_work))
+        cursor.execute(insert_sql, (0, emp_id, pay_hour, otpay_hour, totalh_work, totalhot_work))
         db_conn.commit()
 
     finally:
