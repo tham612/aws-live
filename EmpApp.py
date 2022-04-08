@@ -259,10 +259,10 @@ def FetchTime():
         # if SELECT:
         myresult = cursor.fetchone()
 
-        emp_id = myresult[0]
-        working_day = myresult[1]
-        time_in = myresult[2]
-        time_out = myresult[3]
+        emp_id = myresult[1]
+        working_day = myresult[2]
+        time_in = myresult[3]
+        time_out = myresult[4]
         
     finally:
         # close the database after use the database
@@ -289,10 +289,10 @@ def FetchTimeEdit():
         # if SELECT:
         myresult = cursor.fetchone()
 
-        emp_id = myresult[0]
-        working_day = myresult[1]
-        time_in = myresult[2]
-        time_out = myresult[3]
+        emp_id = myresult[1]
+        working_day = myresult[2]
+        time_in = myresult[3]
+        time_out = myresult[4]
         
     finally:
         cursor.close()
@@ -385,9 +385,9 @@ def FetchAttendance():
         # if SELECT:
         myresult = cursor.fetchone()
 
-        emp_id = myresult[0]
-        check_in = myresult[1]
-        check_out = myresult[2]
+        emp_id = myresult[1]
+        check_in = myresult[2]
+        check_out = myresult[3]
         
     finally:
         # close the database after use the database
@@ -443,11 +443,11 @@ def FetchPayroll():
         # if SELECT:
         myresult = cursor.fetchone()
 
-        emp_id = myresult[0]
-        pay_hour = myresult[1]
-        otpay_hour = myresult[2]
-        totalh_work = myresult[3]
-        totalhot_work = myresult[4]
+        emp_id = myresult[1]
+        pay_hour = myresult[2]
+        otpay_hour = myresult[3]
+        totalh_work = myresult[4]
+        totalhot_work = myresult[5]
         
     finally:
         # close the database after use the database
@@ -474,11 +474,11 @@ def FetchPayrollEdit():
         # if SELECT:
         myresult = cursor.fetchone()
 
-        emp_id = myresult[0]
-        pay_hour = myresult[1]
-        otpay_hour = myresult[2]
-        totalh_work = myresult[3]
-        totalhot_work = myresult[4]
+        emp_id = myresult[1]
+        pay_hour = myresult[2]
+        otpay_hour = myresult[3]
+        totalh_work = myresult[4]
+        totalhot_work = myresult[5]
         
     finally:
         cursor.close()
