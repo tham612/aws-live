@@ -21,6 +21,10 @@ output = {}
 table = 'employee'
 
 
+@app.route("/aboutus", methods=['GET', 'POST'])
+def AboutUs():
+    return render_template('AboutUs.html')
+
 @app.route("/payrollP", methods=['GET', 'POST'])
 def PayrollP():
     return render_template('AddPayroll.html')
