@@ -25,7 +25,7 @@ python3 EmpApp.py
 netstat -tulpn | grep :80
 
 # kill port 80
-kill $(lsof -t -i:80)
+kill $(lsof -t -i:80) 
 
 
 
